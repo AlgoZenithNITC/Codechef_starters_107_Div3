@@ -259,16 +259,17 @@ public class Main {
 <details>
     <summary>Python Code</summary>
 
-```
-        def solve():
-        n, m, x, y = map(int, input().split())
-        mul = n * m
-        print(max(mul - x * m, mul - (n - x + 1) * m, mul - y * n, mul - (m - y + 1) * n))
-    
-        t = int(input())
-        for _ in range(t):
-            solve()
-
+```python
+t = int(input())
+for _ in range(t):
+    n, k = list(map(int, input().split()))
+    K = min(n, k - 1)
+    if K == 0:
+        print(K)
+        continue
+    a = (n - K) % k
+    b = (K // 2) + (K % 2)
+    print(b + a // 2)
 
 ```
 </details>
@@ -277,31 +278,28 @@ public class Main {
 <details>
   	<summary>C++</summary>
   
-```
-        #include <iostream>
-        #include <algorithm>
-        #include <vector>
-        #include <math.h>
-        #include <set>
-        #define rep(i,a,b) for(int i=a; i<b; i++)
-        
-        using namespace std;
-        
-        typedef long long ll;
-        
-        void solve(){
-            ll n,m,x,y; cin>>n>>m>>x>>y;
-            ll mul=n*m;
-            cout<<max({mul-x*m,mul-m*(n-x+1),mul-y*n,mul-n*(m-y+1)});
-            cout<<"\n";
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; i++) {
+        int n, k;
+        cin >> n >> k;
+        int K = min(n, k - 1);
+        if (K == 0) {
+            cout << K << endl;
+            continue;
         }
-        
-        int main(){
-           ios_base::sync_with_stdio(false);
-           cin.tie(NULL); cout.tie(NULL);
-           int t; cin>>t; while(t--)solve();
-           return 0;
-        }
+        int a = (n - K) % k;
+        int b = (K / 2) + (K % 2);
+        cout << b + a / 2 << endl;
+    }
+    return 0;
+}
+
 ```
 </details>
 
@@ -309,29 +307,26 @@ public class Main {
 <details>
 	<summary>JAVA</summary>
   
-```
+```java
+import java.util.Scanner;
 
-      import java.util.Scanner;
-
-      public class Main {
-          public static void main(String[] args) {
-              Scanner sc = new Scanner(System.in);
-              int t = sc.nextInt();
-      
-              while (t-- > 0) {
-                  long n = sc.nextLong();
-                  long m = sc.nextLong();
-                  long x = sc.nextLong();
-                  long y = sc.nextLong();
-      
-                  long mul = n * m;
-                  long result = Math.max(Math.max(mul - x * m, mul - (n - x + 1) * m), Math.max(mul - y * n, mul - (m - y + 1) * n));
-      
-                  System.out.println(result);
-              }
-          }
-      }
-
-
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        for (int i = 0; i < t; i++) {
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            int K = Math.min(n, k - 1);
+            if (K == 0) {
+                System.out.println(K);
+                continue;
+            }
+            int a = (n - K) % k;
+            int b = (K / 2) + (K % 2);
+            System.out.println(b + a / 2);
+        }
+    }
+}
 ```
 </details>
