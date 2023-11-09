@@ -254,7 +254,7 @@ public class Main {
 ```
 </details>
 
-# Save People
+# Maximal Expression
 
 <details>
     <summary>Python Code</summary>
